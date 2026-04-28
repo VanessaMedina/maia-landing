@@ -8,10 +8,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-w+ta=ta%^713e!q0z=au@_y3v9lm!3^1($%e7qyftth@i8)ncq')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
+# SECURITY
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-CSRF_TRUSTED_ORIGINS = ['https://edumaia.org', 'https://www.edumaia.org']
+# CSRF (obligatorio para formularios en Django 4.2+)
+CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_TRUSTED_ORIGINS', '').split(',')
+if '' in CSRF_TRUSTED_ORIGINS:
+    CSRF_TRUSTED_ORIGINS.remove('')
 
 
 # Application definition
