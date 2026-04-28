@@ -1,0 +1,103 @@
+<!-- templates/public/about.html -->
+{% extends 'public/base_public.html' %}
+
+{% block title %}Sobre MaIA - Apoyo pedagógico inclusivo{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <h1 class="mb-4 text-center">Sobre MaIA</h1>
+            
+            <!-- Quiénes somos -->
+            <section class="mb-5">
+                <h2>¿Quiénes somos?</h2>
+                <p>
+                    MaIA es una herramienta pedagógica desarrollada por docentes para docentes, 
+                    con el objetivo de fortalecer la observación sistemática en el aula y 
+                    promover prácticas inclusivas en la educación.
+                </p>
+                <p>
+                    Nuestra misión es empoderar a los docentes con datos objetivos y 
+                    recomendaciones accionables, respetando siempre la privacidad y dignidad 
+                    de los estudiantes.
+                </p>
+            </section>
+
+            <!-- Reconocimiento -->
+            <section class="mb-5">
+                <h2>Reconocimiento</h2>
+                <div class="alert alert-success">
+                    <strong>Segundo Lugar</strong> en el concurso de innovación educativa STEAM
+                    <em>"Concurso de Emprendimientos con enfoque STEAM Alice Lardé"</em>, organizado por MIPYME-UFG y la Unión Europea, 2026.
+                </div>
+                <p>
+                    Este reconocimiento valida nuestro enfoque centrado en la pedagogía, 
+                    la ética y la usabilidad real en contextos escolares diversos.
+                </p>
+            </section>
+
+            <!-- Personas involucradas -->
+            <section class="mb-5">
+                <h2>Equipo MaIA</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <h5>Vanessa Medina</h5>
+                        <p class="text-muted small">Ingeniera e investigadora pedagógica<br>Líder del proyecto</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <h5>Psiquiatra</h5>
+                        <p class="text-muted small">Psiquiatra comprometido con la educación inclusiva y validando el enfoque de MaiA</p>
+                    </div>
+                </div>
+                <p class="small text-muted">
+                    ¿Quieres unirte al equipo? <a href="mailto:contacto@edumaia.org">Contáctanos</a>.
+                </p>
+            </section>
+
+            <!-- Instituciones aliadas -->
+            <section class="mb-5">
+                <h2>Instituciones aliadas</h2>
+                <ul class="list-unstyled">
+                    <li class="mb-2">Centro Escolar Asentamiento</li>
+                    <li class="mb-2">Colegio Samuel Adams</li>
+                </ul>
+                <p class="small text-muted">
+                    Colaboramos con instituciones comprometidas con la innovación educativa 
+                    y la inclusión escolar.
+                </p>
+            </section>
+
+            <!-- Redes sociales -->
+            <section>
+                <h2>Síguenos</h2>
+                <div class="d-flex gap-3">
+                    <a href="https://instagram.com/edumaiasv" target="_blank" class="btn btn-outline-danger">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                    <a href="https://facebook.com/edumaiasv" target="_blank" class="btn btn-outline-primary">
+                        <i class="fab fa-facebook-f"></i> Facebook
+                    </a>
+                </div>
+                <p class="mt-3 small text-muted">
+                    Compartimos recursos, testimonios y actualizaciones sobre observación pedagógica inclusiva.
+                </p>
+            </section>
+
+            <!-- Contacto -->
+            <section class="mt-5 pt-4 border-top">
+                <h2>Contacto</h2>
+                <p>
+                    ¿Tienes preguntas, sugerencias o deseas implementar MaIA en tu centro educativo?
+                </p>
+                <p>
+                    <strong>Email:</strong> <a href="mailto:contacto@edumaia.org">contacto@edumaia.org</a>
+                </p>
+            </section>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+<!-- Font Awesome para íconos de redes sociales -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">

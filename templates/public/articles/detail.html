@@ -1,0 +1,35 @@
+<!-- templates/public/articles/detail.html -->
+{% extends 'public/base_public.html' %}
+{% load static %}
+
+{% block title %}{{ article.title }} - MaIA{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <nav aria-label="breadcrumb" class="mb-3">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'articles_list' %}">Recursos</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ article.title }}</li>
+                </ol>
+            </nav>
+
+            <article>
+                <h1 class="mb-3">{{ article.title }}</h1>
+                <p class="text-muted mb-4">
+                    <small>{{ article.published_date|date:"d F Y" }}</small>
+                </p>
+                
+                <div class="article-content">
+                    {{ article.content|safe }}
+                </div>
+            </article>
+
+            <div class="mt-5">
+                <a href="{% url 'articles_list' %}" class="btn btn-secondary">&larr; Volver a recursos</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

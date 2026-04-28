@@ -1,0 +1,29 @@
+# Entorno virtual
+venv/
+env/
+*.env
+
+# Archivos de base de datos
+db.sqlite3
+*.sqlite3
+
+# Archivos de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Sistema
+.DS_Store
+Thumbs.db

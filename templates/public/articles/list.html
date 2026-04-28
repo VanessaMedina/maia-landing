@@ -1,0 +1,62 @@
+<!-- templates/public/articles/list.html -->
+{% extends 'public/base_public.html' %}
+{% load static %}
+
+{% block title %}Recursos pedagógicos - MaIA{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-9">
+            <h1 class="mb-4 text-center">Recursos pedagógicos</h1>
+            <p class="text-center text-muted mb-5">Artículos, guías y herramientas para la observación inclusiva en el aula</p>
+
+            <div class="row g-4">
+                <!-- Artículo 1 -->
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Guía para observar sin juzgar</h5>
+                            <p class="card-text">Aprende a registrar comportamientos observables en lugar de interpretaciones subjetivas.</p>
+                            <a href="{% url 'article_detail' slug='observar-sin-juzgar' %}" class="btn btn-outline-primary">Leer más</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Artículo 2 -->
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Contexto: la clave de la observación</h5>
+                            <p class="card-text">Por qué el momento, la materia y el tipo de actividad son fundamentales para entender los comportamientos.</p>
+                            <a href="{% url 'article_detail' slug='contexto-observacion' %}" class="btn btn-outline-primary">Leer más</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Artículo 3 -->
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">De la observación a la acción</h5>
+                            <p class="card-text">Cómo transformar tus observaciones en estrategias pedagógicas concretas y efectivas.</p>
+                            <a href="{% url 'article_detail' slug='observacion-a-accion' %}" class="btn btn-outline-primary">Leer más</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Artículo 4 -->
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Ética en la observación escolar</h5>
+                            <p class="card-text">Principios éticos para observar a estudiantes respetando su dignidad y privacidad.</p>
+                            <a href="{% url 'article_detail' slug='etica-observacion' %}" class="btn btn-outline-primary">Leer más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
