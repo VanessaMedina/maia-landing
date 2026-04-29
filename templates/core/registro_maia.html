@@ -1,0 +1,165 @@
+<!-- templates/core/registro_maia.html -->
+{% load static form_helpers %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro MaIA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8f9fa; }
+        .card { border-radius: 12px; }
+        .scale-label { font-size: 0.85rem; color: #666; }
+    </style>
+</head>
+<body>
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm p-4">
+                <div class="text-center mb-4">
+                    <img src="{% static 'core/images/logo.png' %}" alt="MaIA" class="img-fluid" style="max-height: 60px;">
+                    <h2 class="mt-2">Registro rápido MaIA</h2>
+                    <p class="text-muted small">⏱️ Toma menos de 20 segundos</p>
+                </div>
+
+                <form method="post" id="registroForm">
+                    {% csrf_token %}
+
+                    <!-- Encabezado automático -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Grado/Sección</label>
+                            {{ form.grado_seccion }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Centro educativo</label>
+                            {{ form.centro_educativo }}
+                        </div>
+                    </div>
+
+                    <!-- A. CONTEXTO -->
+                    <h5 class="mb-3">🕐 Contexto (obligatorio)</h5>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Materia</label>
+                            {{ form.materia }}
+                            <div id="otraMateriaField" style="display:none;" class="mt-2">
+                                {{ form.materia_otra }}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Tipo de actividad</label>
+                            {{ form.tipo_actividad }}
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Momento</label>
+                        <div class="d-flex gap-3">
+                            {% for value, label in form.momento.field.choices %}
+                                {% if value %}
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="{{ form.momento.name }}" value="{{ value }}" required>
+                                        <label class="form-check-label">{{ label }}</label>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- B. NIVEL DE REGISTRO -->
+                    <div class="mb-3">
+                        <label class="form-label">¿Este registro es para?</label>
+                        <div class="d-flex flex-wrap gap-3">
+                            {% for value, label in form.nivel_registro.field.choices %}
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="{{ form.nivel_registro.name }}" value="{{ value }}" required onchange="toggleFields()">
+                                    <label class="form-check-label">{{ label }}</label>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        
+                        <div id="estudianteField" class="mt-2" style="display:none;">
+                            {{ form.codigo_estudiante }}
+                        </div>
+                    </div>
+
+                    <!-- C. VARIABLES (0–3) -->
+                    <h5 class="mb-3 mt-4">🧠 Variables principales</h5>
+                    {% for field_name in campos_variables %}
+                         {% with field=form|get_item:field_name %}
+                        <div class="mb-3">
+                            <label class="form-label">{{ field.label }}</label>
+                            <div class="d-flex flex-wrap gap-2">
+                                {% for value, label in field.field.choices %}
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="{{ field.name }}" value="{{ value }}" required>
+                                        <label class="form-check-label scale-label">{{ value }}: {{ label }}</label>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endwith %}       
+                    {% endfor %}
+
+                    <!-- D. EVENTO PUNTUAL -->
+                    <h5 class="mb-3 mt-4">⚠️ Evento puntual (opcional)</h5>
+                    <div class="d-flex flex-wrap gap-2 mb-2">
+                        {% for value, label in form.evento_puntual.field.choices %}
+                            {% if value %}
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="{{ form.evento_puntual.name }}" value="{{ value }}" onchange="toggleEventoOtro()">
+                                    <label class="form-check-label">{{ label }}</label>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div id="eventoOtroField" style="display:none;">
+                        {{ form.evento_otro }}
+                    </div>
+
+                    <!-- E. OBSERVACIÓN BREVE -->
+                    <div class="mb-3">
+                        <label class="form-label">🎯 Observación breve (máx. 60 caracteres)</label>
+                        {{ form.observacion_breve }}
+                    </div>
+
+                    <!-- Submit -->
+                    <button type="submit" class="btn btn-success w-100" id="submitBtn">
+                        Guardar registro
+                    </button>
+                </form>
+            </div>
+
+            <div class="text-center mt-3 small text-muted">
+                <p>🔒 No se registran datos personales ni diagnósticos</p>
+                <p>📊 Los datos ayudan a identificar patrones de aprendizaje</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleFields() {
+    const nivel = document.querySelector('input[name="nivel_registro"]:checked')?.value;
+    document.getElementById('estudianteField').style.display = nivel === 'individual' ? 'block' : 'none';
+}
+
+function toggleEventoOtro() {
+    const evento = document.querySelector('input[name="evento_puntual"]:checked')?.value;
+    document.getElementById('eventoOtroField').style.display = evento === 'otro' ? 'block' : 'none';
+}
+
+document.querySelector('[name="materia"]').addEventListener('change', function() {
+    document.getElementById('otraMateriaField').style.display = this.value === 'otra' ? 'block' : 'none';
+});
+
+document.getElementById('registroForm').addEventListener('submit', function() {
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Guardando...';
+});
+</script>
+</body>
+</html>

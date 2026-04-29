@@ -33,6 +33,11 @@ INSTALLED_APPS = [
     'core',
 ]
 
+# Login/logout URLs
+LOGIN_URL = '/cuenta/login/'
+LOGIN_REDIRECT_URL = '/cuenta/dashboard/'
+LOGOUT_REDIRECT_URL = '/'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -146,7 +151,3 @@ if not DEBUG:
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Login/logout URLs
-LOGIN_URL = '/cuenta/login/'
-LOGIN_REDIRECT_URL = '/cuenta/dashboard/'
-LOGOUT_REDIRECT_URL = '/'
