@@ -1,7 +1,8 @@
 <!-- templates/public/about.html -->
 {% extends 'public/base_public.html' %}
+{% load static %}
 
-{% block title %}Sobre MaIA - Apoyo pedagógico inclusivo{% endblock %}
+{% block title %}Sobre MaIA - Innovación Educativa con Impacto{% endblock %}
 
 {% block content %}
 <div class="container py-5">
@@ -13,41 +14,66 @@
             <section class="mb-5">
                 <h2>¿Quiénes somos?</h2>
                 <p>
-                    MaIA es una herramienta pedagógica desarrollada por docentes para docentes, 
-                    con el objetivo de fortalecer la observación sistemática en el aula y 
-                    promover prácticas inclusivas en la educación.
+                    MaIA es una herramienta pedagógica innovadora desarrollada por docentes para docentes, 
+                    con el objetivo de transformar la observación en el aula en una práctica sistemática, 
+                    ética y orientada a la inclusión educativa.
                 </p>
                 <p>
                     Nuestra misión es empoderar a los docentes con datos objetivos y 
                     recomendaciones accionables, respetando siempre la privacidad y dignidad 
-                    de los estudiantes.
+                    de los estudiantes, sin recurrir a diagnósticos ni etiquetas.
                 </p>
             </section>
 
             <!-- Reconocimiento -->
             <section class="mb-5">
-                <h2>Reconocimiento</h2>
+                <h2>Reconocimiento y Validación</h2>
                 <div class="alert alert-success">
-                    <strong>Segundo Lugar</strong> en el concurso de innovación educativa STEAM
-                    <em>"Concurso de Emprendimientos con enfoque STEAM Alice Lardé"</em>, organizado por MIPYME-UFG y la Unión Europea, 2026.
+                    <strong>🥈 Segundo Lugar Nacional</strong> en el concurso de innovación educativa STEAM 
+                    <em>"Concurso de Emprendimientos con enfoque STEAM Alice Lardé"</em>, 
+                    organizado por MIPYME-UFG y la Unión Europea, 2026.
                 </div>
                 <p>
-                    Este reconocimiento valida nuestro enfoque centrado en la pedagogía, 
-                    la ética y la usabilidad real en contextos escolares diversos.
+                    Este reconocimiento nos posiciona como una solución innovadora con alto potencial 
+                    de impacto en la educación inclusiva centroamericana, alineada con los Objetivos 
+                    de Desarrollo Sostenible (ODS 4 y 10).
                 </p>
             </section>
 
-            <!-- Personas involucradas -->
+            <!-- Proceso de Selección EWC -->
             <section class="mb-5">
-                <h2>Equipo MaIA</h2>
+                <h2>Preparados para la Escena Global</h2>
+                <p>
+                    MaIA cumple con los criterios de la <strong>Entrepreneurship World Cup (EWC) 2026</strong>:
+                </p>
+                <ul class="list-unstyled">
+                    <li>✅ <strong>Ventura early-stage</strong> (menos de 1 año de operación)</li>
+                    <li>✅ <strong>Innovación disruptiva</strong> en el sector educativo</li>
+                    <li>✅ <strong>Modelo escalable</strong> para sistemas educativos latinoamericanos</li>
+                    <li>✅ <strong>Impacto social comprobable</strong> en contextos reales</li>
+                </ul>
+                <p class="small text-muted">
+                    "The Entrepreneurship World Cup is open to creative and innovative individuals anywhere on the entrepreneurship spectrum..."
+                </p>
+            </section>
+
+            <!-- Equipo fundador -->
+            <section class="mb-5">
+                <h2>Equipo Fundador</h2>
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <h5>Vanessa Medina</h5>
-                        <p class="text-muted small">Ingeniera e investigadora pedagógica<br>Líder del proyecto</p>
+                        <p class="text-muted small">Ingeniera e investigadora pedagógica<br><strong>Líder del proyecto</strong></p>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <h5>Psiquiatra</h5>
-                        <p class="text-muted small">Psiquiatra comprometido con la educación inclusiva y validando el enfoque de MaiA</p>
+                        <h5>Dr. David Ernesto Vaquerano Ramírez</h5>
+                        <p class="text-muted small">
+                            Psiquiatra<br>
+                            <strong>Asesor clínico en neurodesarrollo y salud mental escolar</strong><br>
+                            <a href="https://www.medicosdeelsalvador.com/psiquiatria/adultos/dr-david-ernesto-vaquerano-ramirez_991.html" target="_blank" class="small">
+                                <i class="fab fa-linkedin"></i> Ver perfil profesional
+                            </a>
+                        </p>
                     </div>
                 </div>
                 <p class="small text-muted">
@@ -59,8 +85,10 @@
             <section class="mb-5">
                 <h2>Instituciones aliadas</h2>
                 <ul class="list-unstyled">
-                    <li class="mb-2">Centro Escolar Asentamiento</li>
-                    <li class="mb-2">Colegio Samuel Adams</li>
+                    <li class="mb-2">🏫 Centro Escolar Asentamiento</li>
+                    <li class="mb-2">🏫 Colegio Samuel Adams</li>
+                    <li class="mb-2">🤝 MIPYME-UFG</li>
+                    <li class="mb-2">🌍 Unión Europea</li>
                 </ul>
                 <p class="small text-muted">
                     Colaboramos con instituciones comprometidas con la innovación educativa 
@@ -86,9 +114,9 @@
 
             <!-- Contacto -->
             <section class="mt-5 pt-4 border-top">
-                <h2>Contacto</h2>
+                <h2>Contacto para Alianzas Estratégicas</h2>
                 <p>
-                    ¿Tienes preguntas, sugerencias o deseas implementar MaIA en tu centro educativo?
+                    ¿Eres inversionista, representante institucional o quieres implementar MaIA en tu centro educativo?
                 </p>
                 <p>
                     <strong>Email:</strong> <a href="mailto:contacto@edumaia.org">contacto@edumaia.org</a>
@@ -99,5 +127,5 @@
 </div>
 {% endblock %}
 
-<!-- Font Awesome para íconos de redes sociales -->
+<!-- Font Awesome para íconos -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
